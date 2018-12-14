@@ -3,27 +3,30 @@ package com.thoughtworks.tddintro.exercises.accountbalance;
 public class Account {
 
     private int balance;
-    private int deposit;
-    private int withdraw;
+    private int newBalance;
 
     public Account(){
         this.balance = 100;
-        this.deposit = 50;
-        this.withdraw = 50;
     }
 
     public int getBalance(){
+
         return balance;
     }
 
-    public int setDeposit() {
-        balance += deposit;
-        return balance;
+    public int setDeposit(int deposit) {
+        newBalance = balance + deposit;
+        return newBalance;
     }
 
-    public int setWithdraw() {
-        balance -= withdraw;
-        return balance;
+    public int setWithdraw(int withdraw) {
+        if (withdraw > balance) {
+            return balance;
+        }
+        else {
+            newBalance = balance - withdraw;
+            return newBalance;
+        }
     }
 
 }
