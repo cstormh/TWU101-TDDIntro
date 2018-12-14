@@ -1,6 +1,9 @@
 package com.thoughtworks.tddintro.resources.test_double;
 
+import org.joda.time.DateTime;
+
 import java.io.PrintStream;
+import java.sql.Time;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,5 +16,8 @@ public class Main {
         // Which can in turn be refactored to...
         GreetingPrinter greetingPrinter = new GreetingPrinter(System.out);
         greetingPrinter.printGreeting();
+
+        TimePrinter timePrinter = new TimePrinter(System.out, DateTime.now());
+        timePrinter.print();
     }
 }
